@@ -38,9 +38,12 @@ qd_swig <- function(graph_obj,
 
   ndf <- DiagrammeR::get_node_df(graph_obj)
   ndf$fixed <- NA
+  print(head(ndf))
+  print(fixed_nodes)
   for (i in 1:length(ndf$alpha_id)) {
     ndf$fixed[i] <- ndf$alpha_id[i] %in% fixed_nodes
   }
+  print(head(ndf))
 
   fx_pathlist <-
     purrr::map(
